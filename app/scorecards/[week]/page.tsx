@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { divisionA, divisionB, scheduleA, scheduleB } from "@/app/data";
+import { divisionA, divisionB, scheduleA, scheduleB } from "../../data";
 
 function playersForTeam(team: number): string[] {
   const t = [...divisionA, ...divisionB].find(x => x.team === team);

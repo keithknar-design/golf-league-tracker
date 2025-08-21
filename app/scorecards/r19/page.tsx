@@ -2,7 +2,7 @@
 
 import { useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import ScorecardTemplate from "@/app/scorecards/ScorecardTemplate";
+import ScorecardTemplate from "../ScorecardTemplate";
 
 const qp = (sp: URLSearchParams, k: string, d = "") => sp.get(k) ?? d;
 const qn = (sp: URLSearchParams, k: string, d = 0) => {

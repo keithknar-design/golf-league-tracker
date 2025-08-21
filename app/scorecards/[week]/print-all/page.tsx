@@ -1,8 +1,8 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { divisionA, divisionB, scheduleA, scheduleB } from "@/app/data";
-import ScorecardTemplate from "@/app/scorecards/ScorecardTemplate";
+import { divisionA, divisionB, scheduleA, scheduleB } from "../../../data";
+import ScorecardTemplate from "../../ScorecardTemplate";
 
 function playersForTeam(team: number): string[] {
   const t = [...divisionA, ...divisionB].find(x => x.team === team);
