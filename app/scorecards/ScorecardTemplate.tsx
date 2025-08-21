@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { CoursePreset, courseById } from "@/app/courses/presets";
-import { strokesOnHole, dotString } from "@/app/scorecards/components/NetStrokeDots";
+import { CoursePreset, courseById } from "../../courses/presets";
+import { strokesOnHole, dotString } from "./components/NetStrokeDots";
 
 type Player = { label: string; name: string; hcap?: number };
 
@@ -94,7 +94,7 @@ export default function ScorecardTemplate(props: ScorecardProps) {
                 <td key={i} style={{ position: "relative" }}>
                   {/* dots show where strokes fall (net) */}
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", fontSize: 16 }}>
-                    {A1.hcap ? dotString(strokesOnHole(h, A1.hcap)) : ""}
+                    {A1.hcap ? dotString(strokesOnHole(h, A1.hcap as number)) : ""}
                   </div>
                 </td>
               ))}
@@ -105,7 +105,7 @@ export default function ScorecardTemplate(props: ScorecardProps) {
               {course.hcp.map((h, i) => (
                 <td key={i} style={{ position: "relative" }}>
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", fontSize: 16 }}>
-                    {A2.hcap ? dotString(strokesOnHole(h, A2.hcap)) : ""}
+                    {A2.hcap ? dotString(strokesOnHole(h, A2.hcap as number)) : ""}
                   </div>
                 </td>
               ))}
@@ -122,7 +122,7 @@ export default function ScorecardTemplate(props: ScorecardProps) {
               {course.hcp.map((h, i) => (
                 <td key={i} style={{ position: "relative" }}>
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", fontSize: 16 }}>
-                    {B1.hcap ? dotString(strokesOnHole(h, B1.hcap)) : ""}
+                    {B1.hcap ? dotString(strokesOnHole(h, B1.hcap as number)) : ""}
                   </div>
                 </td>
               ))}
@@ -133,7 +133,7 @@ export default function ScorecardTemplate(props: ScorecardProps) {
               {course.hcp.map((h, i) => (
                 <td key={i} style={{ position: "relative" }}>
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", fontSize: 16 }}>
-                    {B2.hcap ? dotString(strokesOnHole(h, B2.hcap)) : ""}
+                    {B2.hcap ? dotString(strokesOnHole(h, B2.hcap as number)) : ""}
                   </div>
                 </td>
               ))}
