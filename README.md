@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Golf League Tracker
 
-## Getting Started
+A minimal Next.js + Tailwind site to track a golf league with **two divisions** (A & B), standings, and schedules.
 
-First, run the development server:
+## Quick Start
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Install prerequisites:
+   - Git (Windows build): https://git-scm.com/download/win
+   - Node.js LTS: https://nodejs.org/en/
+
+2. Unzip this project and open a terminal in the folder, then run:
+   ```bash
+   npm install
+   npm run dev
+   ```
+   Visit http://localhost:3000
+
+3. Create a GitHub repo and push:
+   ```bash
+   git init
+   git add -A
+   git commit -m "Initial golf league tracker"
+   git branch -M main
+   git remote add origin https://github.com/YOUR-USERNAME/golf-league-tracker.git
+   git push -u origin main
+   ```
+
+4. Deploy on Vercel:
+   - Log in to https://vercel.com
+   - New Project → Import your GitHub repo → Deploy
+
+## How to Update Data
+
+Open `app/page.tsx` and edit these arrays:
+
+```ts
+// Division rosters & standings points
+const divisionA = [
+  { name: "John Smith", handicap: 8, points: 24 },
+  // add/edit players here...
+];
+
+const divisionB = [
+  { name: "Alex Brown", handicap: 10, points: 22 },
+  // add/edit players here...
+];
+
+// Schedules
+const scheduleA = [
+  { week: 1, course: "Sunny Hills GC", matchup: "John vs Mike", result: "John +2" },
+  // add/edit games here...
+];
+
+const scheduleB = [
+  { week: 1, course: "Pine Ridge", matchup: "Alex vs Sam", result: "Alex E" },
+  // add/edit games here...
+];
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Example: Add a new player to Division A
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```ts
+divisionA.push({ name: "New Player", handicap: 11, points: 0 });
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Example: Add a new game to Division B
 
-## Learn More
+```ts
+scheduleB.push({ week: 4, course: "Cedar Creek", matchup: "Sam vs Brian", result: "Pending" });
+```
 
-To learn more about Next.js, take a look at the following resources:
+Save, commit, and push. Vercel auto-redeploys.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Moving to Real Data (Optional Next Step)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Replace hard-coded arrays with a backend or hosted database (e.g., Supabase Postgres).
+- Build an Admin page for entering scores.
+- Compute standings from scorecards instead of manual points.
